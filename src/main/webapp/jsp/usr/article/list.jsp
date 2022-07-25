@@ -13,3 +13,4 @@ List<ArticleDto> articles = (List<ArticleDto>)request.getAttribute("articles");
     <li><%=article.getId()%>. <%=article.getTitle()%></li>
     <% } %>
 </ul>
+
