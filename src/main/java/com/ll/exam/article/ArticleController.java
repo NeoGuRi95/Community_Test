@@ -23,14 +23,6 @@ public class ArticleController {
         rq.view("usr/article/write");
     }
 
-    public void findById(Rq rq) {
-        long id = 1;
-        ArticleDto articleDto = articleService.findById(id);
-
-        rq.appendBody("<h1> %s </h1>".formatted(articleDto.getTitle()));
-        rq.appendBody("<div> %s </div>".formatted(articleDto.getBody()));
-    }
-
     public void doWrite(Rq rq) {
         String title = rq.getParam("title", "");
         String body = rq.getParam("body", "");
