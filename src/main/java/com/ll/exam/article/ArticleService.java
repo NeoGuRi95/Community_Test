@@ -15,7 +15,11 @@ public class ArticleService {
         return articleRepository.write(title, body);
     }
 
-    public List<ArticleDto> getArticleList() {
-        return articleRepository.getArticleList();
+    public List<ArticleDto> findAll() {
+        return articleRepository.findAll();
+    }
+
+    public ArticleDto findById(long id) {
+        return articleRepository.findById(id);
     }
 }

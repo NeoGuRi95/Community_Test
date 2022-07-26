@@ -3,7 +3,6 @@ package com.ll.exam.article;
 import com.ll.exam.Rq;
 import com.ll.exam.article.dto.ArticleDto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleController {
@@ -14,7 +13,7 @@ public class ArticleController {
     }
 
     public void showList(Rq rq) {
-        List<ArticleDto> articleDtos = articleService.getArticleList();
+        List<ArticleDto> articleDtos = articleService.findAll();
 
         rq.setAttr("articles", articleDtos);
         rq.view("usr/article/list");
@@ -22,6 +21,14 @@ public class ArticleController {
 
     public void showWrite(Rq rq) {
         rq.view("usr/article/write");
+    }
+
+    public void findById(Rq rq) {
+        long id = 1;
+        ArticleDto articleDto = articleService.findById(id);
+
+        rq.appendBody("<h1> %s </h1>".formatted(articleDto.getTitle()));
+        rq.appendBody("<div> %s </div>".formatted(articleDto.getBody()));
     }
 
     public void doWrite(Rq rq) {
