@@ -83,4 +83,14 @@ public class ArticleController {
 
         rq.appendBody("%d번 게시물이 삭제 되었습니다.".formatted(id));
     }
+
+    public void doModify(Rq rq) {
+        long id = rq.getLongPathValueByIndex(1, 0);
+        String title = rq.getParam("title", "");
+        String body = rq.getParam("body", "");
+
+        articleService.doModify(id, title, body);
+
+        rq.appendBody("%d번 게시물이 수정 되었습니다.".formatted(id));
+    }
 }

@@ -26,4 +26,8 @@ public class ArticleService {
     public void doDelete(long id) {
         articleRepository.doDelete(id);
     }
+
+    public void doModify(long id, String title, String body) {
+        articleRepository.doModify(id, title, body);
+    }
 }

@@ -30,17 +30,18 @@ function ArticleSave__submitForm(form) {
 <h1>게시물 수정</h1>
 
 <form method="POST" onsubmit="ArticleSave__submitForm(this); return false;">
+    <input name="id" type="hidden" value=<%=article.getId()%>/>
     <div>
         <span>제목</span>
         <div>
-            <input name="title" type="text" maxlength="50" placeholder="<%=article.getTitle()%>" />
+            <input name="title" type="text" maxlength="50" value="<%=article.getTitle()%>" />
         </div>
     </div>
 
     <div>
         <span>내용</span>
         <div>
-            <input name="body" type="text" maxlength="300" placeholder="<%=article.getBody()%>" />
+            <input name="body" type="text" maxlength="300" value="<%=article.getBody()%>" />
         </div>
     </div>
 

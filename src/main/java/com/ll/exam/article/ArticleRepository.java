@@ -43,4 +43,14 @@ public class ArticleRepository {
             }
         }
     }
+
+    public void doModify(long id, String title, String body) {
+        for (ArticleDto articleDto : datum) {
+            if (articleDto.getId() == id) {
+                articleDto.setTitle(title);
+                articleDto.setBody(body);
+                return;
+            }
+        }
+    }
 }
