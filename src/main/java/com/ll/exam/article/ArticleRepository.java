@@ -14,7 +14,7 @@ public class ArticleRepository {
         lastId = 0;
     }
 
-    public long write(String title, String body) {
+    public static long write(String title, String body) {
         long id = ++lastId;
         ArticleDto newArticleDto = new ArticleDto(id, title, body);
 
@@ -23,11 +23,11 @@ public class ArticleRepository {
         return id;
     }
 
-    public List<ArticleDto> findAll() {
+    public static List<ArticleDto> findAll() {
         return datum;
     }
 
-    public ArticleDto findById(long id) {
+    public static ArticleDto findById(long id) {
         for (ArticleDto articleDto : datum) {
             if (articleDto.getId() == id)
                 return articleDto;
@@ -35,7 +35,7 @@ public class ArticleRepository {
         return null;
     }
 
-    public void doDelete(long id) {
+    public static void doDelete(long id) {
         for (ArticleDto articleDto : datum) {
             if (articleDto.getId() == id) {
                 datum.remove(articleDto);
@@ -44,7 +44,7 @@ public class ArticleRepository {
         }
     }
 
-    public void doModify(long id, String title, String body) {
+    public static void doModify(long id, String title, String body) {
         for (ArticleDto articleDto : datum) {
             if (articleDto.getId() == id) {
                 articleDto.setTitle(title);
