@@ -50,4 +50,17 @@ public class ArticleController {
         rq.setAttr("article", articleDto);
         rq.view("usr/article/detail");
     }
+
+    public void doDelete(Rq rq) {
+        long id = rq.getLongPathValueByIndex(1, 0);
+
+        if (id == 0) {
+            rq.appendBody("요청 양식이 잘못되었습니다.");
+            return;
+        }
+
+        articleService.doDelete(id);
+
+        rq.appendBody("%d번 게시물이 삭제 되었습니다.".formatted(id));
+    }
 }
