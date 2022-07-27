@@ -55,12 +55,11 @@ public class ArticleRepository {
     }
 
     public static void doModify(long id, String title, String body) {
-        for (ArticleDto articleDto : datum) {
-            if (articleDto.getId() == id) {
-                articleDto.setTitle(title);
-                articleDto.setBody(body);
-                return;
-            }
-        }
+        ArticleDto articleDto = findById(id);
+
+        if (articleDto == null) return;
+
+        articleDto.setTitle(title);
+        articleDto.setBody(body);
     }
 }

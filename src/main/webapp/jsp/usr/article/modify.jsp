@@ -30,7 +30,13 @@ function ArticleSave__submitForm(form) {
 <h1>게시물 수정</h1>
 
 <form method="POST" onsubmit="ArticleSave__submitForm(this); return false;">
-    <input name="id" type="hidden" value=<%=article.getId()%>/>
+    <div>
+        <span>번호</span>
+        <div>
+            <%=article.getId()%>
+        </div>
+    </div>
+
     <div>
         <span>제목</span>
         <div>
@@ -46,7 +52,7 @@ function ArticleSave__submitForm(form) {
     </div>
 
     <div>
-        <span>작성</span>
+        <span>수정</span>
         <div>
             <input type="submit" value="수정" />
         </div>
