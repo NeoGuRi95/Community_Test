@@ -79,6 +79,13 @@ public class ArticleController {
             return;
         }
 
+        ArticleDto articleDto = articleService.findById(id);
+
+        if (articleDto == null) {
+            rq.appendBody("해당 글이 존재하지 않습니다.");
+            return;
+        }
+
         articleService.doDelete(id);
 
         rq.appendBody("%d번 게시물이 삭제 되었습니다.".formatted(id));

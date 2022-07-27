@@ -47,12 +47,11 @@ public class ArticleRepository {
     }
 
     public static void doDelete(long id) {
-        for (ArticleDto articleDto : datum) {
-            if (articleDto.getId() == id) {
-                datum.remove(articleDto);
-                return;
-            }
-        }
+        ArticleDto articleDto = findById(id);
+
+        if (articleDto == null) return;
+
+        datum.remove(articleDto);
     }
 
     public static void doModify(long id, String title, String body) {
